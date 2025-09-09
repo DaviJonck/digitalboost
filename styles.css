@@ -68,7 +68,7 @@ body {
 }
 
 .logo-image {
-  height: 40px;
+  height: 100px;
   width: auto;
   object-fit: contain;
   max-width: 120px;
@@ -480,6 +480,11 @@ body {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .feature i {
@@ -499,6 +504,67 @@ body {
 }
 .feature p {
   color: var(--text-secondary);
+}
+
+/* Portfolio Section */
+.portfolio {
+  padding: 80px 0;
+  background: white;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.portfolio-item {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.portfolio-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+}
+
+.portfolio-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+.portfolio-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: white;
+  padding: 2rem 1.5rem 1.5rem;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+  transform: translateY(0);
+}
+
+.portfolio-overlay h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-overlay p {
+  font-size: 0.9rem;
+  opacity: 0.9;
 }
 
 /* Target Audience */
@@ -689,6 +755,10 @@ body {
   .footer-content {
     grid-template-columns: 1fr;
     text-align: center;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
   }
 }
 
